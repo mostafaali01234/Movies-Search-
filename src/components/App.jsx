@@ -55,7 +55,7 @@ const App = () => {
         ></Header>
       </SearchContext.Provider>
 
-      {/* <Search search={search} /> */}
+      {/* <Search search={search} />  */}
 
       <div className="movies">
         {loading && !errorMessage ? (

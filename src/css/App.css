@@ -38,6 +38,7 @@ body {
   display: flex;
   align-items: center;
   z-index: 9;
+
 }
 
 .App-header a {
