@@ -1,5 +1,5 @@
 body {
-  /* background-color: rgb(80, 79, 79); */
+  background-color: rgb(80, 79, 79);
   height: 100%;
 }
 
@@ -80,13 +80,84 @@ body {
   background-color: #045d7a;
 }
 
-
 .movie {
   padding: 5px 25px 10px 25px;
   max-width: 20%;
   text-align: left;
   position: relative;
+  margin: 0 auto;
 }
+
+@media only screen and (max-width: 767px) {
+  .App-header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .App-header a,
+  .App-header .search {
+    margin: 5px auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .App-header .search :first-child,
+  .App-header .search :last-child {
+    margin: 3px 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .movie {
+    max-width: 50%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .movie {
+    max-width: 22%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .movie {
+    max-width: 20%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .movie {
+    max-width: 18%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .movie {
+    max-width: 15%;
+  }
+}
+
+/* @media screen and (min-width: 694px) and (max-width: 915px) {
+  .movie {
+    max-width: 33%;
+  }
+}
+
+@media screen and (min-width: 652px) and (max-width: 693px) {
+  .movie {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .movie {
+    max-width: 100%;
+    margin: auto;
+  }
+} */
+
 
 .movie .images {
   position: relative;
@@ -168,24 +239,4 @@ body {
   font-size: small;
   margin: 0;
   color: rgb(190, 189, 189);
-}
-
-@media screen and (min-width: 694px) and (max-width: 915px) {
-  .movie {
-    max-width: 33%;
-  }
-}
-
-@media screen and (min-width: 652px) and (max-width: 693px) {
-  .movie {
-    max-width: 50%;
-  }
-}
-
-
-@media screen and (max-width: 651px) {
-  .movie {
-    max-width: 100%;
-    margin: auto;
-  }
 }
