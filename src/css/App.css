@@ -16,7 +16,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  filter: blur(8px);
+  filter: blur(10px);
 }
 
 .App .movies {
@@ -28,6 +28,7 @@ body {
   padding-top: 80px;
   z-index: 20;
 }
+
 
 .App-header {
   position: fixed;
@@ -89,77 +90,6 @@ body {
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 767px) {
-  .App-header {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .App-header a,
-  .App-header .search {
-    margin: 5px auto;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .App-header .search :first-child,
-  .App-header .search :last-child {
-    margin: 3px 0;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .movie {
-    max-width: 50%;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .movie {
-    max-width: 22%;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .movie {
-    max-width: 20%;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .movie {
-    max-width: 18%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .movie {
-    max-width: 15%;
-  }
-}
-
-/* @media screen and (min-width: 694px) and (max-width: 915px) {
-  .movie {
-    max-width: 33%;
-  }
-}
-
-@media screen and (min-width: 652px) and (max-width: 693px) {
-  .movie {
-    max-width: 50%;
-  }
-}
-
-@media screen and (max-width: 651px) {
-  .movie {
-    max-width: 100%;
-    margin: auto;
-  }
-} */
-
-
 .movie .images {
   position: relative;
   cursor: pointer;
@@ -191,8 +121,14 @@ body {
 }
 
 .movie .images .movie-overlay p {
-  margin-top: 80px;
-  font-size: 2rem;
+  margin-top: 30px;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.movie .images .movie-overlay h5 {
+  font-size: 1rem;
   color: rgb(255, 255, 255);
   font-weight: bold;
 }
@@ -200,7 +136,7 @@ body {
 .movie .images .movie-overlay button {
   background-color: #008CBA;
   padding: 8px 28px;
-  margin-top: 50px;
+  margin-top: 20px;
   outline: none;
   border-radius: 3px;
   font-size: 17px;
@@ -240,4 +176,113 @@ body {
   font-size: small;
   margin: 0;
   color: rgb(190, 189, 189);
+}
+
+/* ------------------------------------------------------------------------------------------------- */
+.container {
+  position: relative;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.container .col {
+  margin: 0 20px;
+  text-align: left;
+  color: white;
+}
+
+.container .col img {
+  border: 5px solid #f1f1f1;
+  border-radius: 5px;
+}
+
+.container .col h1 {
+  margin-top: 0;
+}
+
+.container .col h2 {
+  color: #dadada;
+}
+
+.container .col h4 {
+  margin-top: 50px;
+  width: 80%;
+  color: #e0dede;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 767px) {
+  .App-header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .App-header a,
+  .App-header .search {
+    margin: 5px auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .App-header .search :first-child,
+  .App-header .search :last-child {
+    margin: 3px 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .movie {
+    max-width: 50%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .movie {
+    max-width: 30%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .App .movies,
+  .container {
+    padding-top: 170px;
+  }
+
+  .container :nth-child() {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .movie {
+    max-width: 25%;
+  }
+
+  .container .col h1 {
+    font-size: 1.6em;
+  }
+
+  .container .col h2,
+  .container .col h4 {
+    font-size: 1.1em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .movie {
+    max-width: 18%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .movie {
+    max-width: 15%;
+  }
 }

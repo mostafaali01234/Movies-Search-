@@ -2,8 +2,8 @@ import "../css/App.css";
 import Header from "./header";
 import Movie from "./movie";
 import { useEffect, useState, createContext } from "react";
-import MovieDetails from "./movieDetails";
-import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
+// import MovieDetails from "./movieDetails";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const MOVIE_API_URL =
   "https://api.themoviedb.org/3/movie/popular?api_key=c9a37db220f30fead3da528299127d84&language=en-US&page=1";
@@ -12,15 +12,12 @@ const GENRE_API_URL =
 
 export const SearchContext = createContext();
 
-const App = () => {
+const Home = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [homeClick, setHomeClick] = useState(0);
-  const [selectedDetails, setSelectedDetails] = useState();
-  const [selectedPath, setSelectedPath] = useState();
-  const [selectedGenres, setSelectedGenres] = useState();
 
   useEffect(() => {
     fetch(MOVIE_API_URL)
@@ -56,18 +53,11 @@ const App = () => {
       });
   };
 
-  const onDetails = (movie, movieGenres, pathTitle) => {
-    setSelectedDetails(movie);
-    setSelectedGenres(movieGenres);
-    setSelectedPath(pathTitle);
-  };
-
-  // console.log(selectedDetails);
+  // console.log(movies[1]);
 
   return (
     <div className="App">
       <div className="bg-image"></div>
-
       <SearchContext.Provider value={searchFun}>
         <Header
           text="Movies Search"
@@ -76,40 +66,33 @@ const App = () => {
         ></Header>
       </SearchContext.Provider>
 
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <div className="movies">
-              {loading && !errorMessage ? (
-                <span>loading...</span>
-              ) : errorMessage ? (
-                <div className="errorMessage">{errorMessage}</div>
-              ) : (
-                movies.map((movie, index) => (
-                  <Movie
-                    key={`${index}-${movie.Title}`}
-                    movie={movie}
-                    genres={genres}
-                    onDetails={onDetails}
-                  />
-                ))
-              )}
-            </div>
-          )}
-        />
-        <Route
-          path={"/" + selectedPath}
-          render={() => (
-            <MovieDetails movie={selectedDetails} genres={selectedGenres} />
-          )}
-        />
-      </Switch>
+      {/* {loading && !errorMessage ? (
+        <span>loading...</span>
+      ) : errorMessage ? (
+        <div className="errorMessage">{errorMessage}</div>
+      ) : (
+        <MovieDetails movie={movies[9]} genres={genres} />
+      )} */}
 
       {/* <Search search={search} />  */}
+
+      <div className="movies">
+        {loading && !errorMessage ? (
+          <span>loading...</span>
+        ) : errorMessage ? (
+          <div className="errorMessage">{errorMessage}</div>
+        ) : (
+          movies.map((movie, index) => (
+            <Movie
+              key={`${index}-${movie.Title}`}
+              movie={movie}
+              genres={genres}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 };
 
-export default App;
+export default Home;
