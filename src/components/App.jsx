@@ -3,7 +3,7 @@ import Header from "./header";
 import Movie from "./movie";
 import { useEffect, useState, createContext } from "react";
 import MovieDetails from "./movieDetails";
-import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Switch, Route, Redirect } from "react-router-dom";
 
 const MOVIE_API_URL =
   "https://api.themoviedb.org/3/movie/popular?api_key=c9a37db220f30fead3da528299127d84&language=en-US&page=1";
@@ -79,7 +79,7 @@ const App = () => {
       <Switch>
         <Route
           exact
-          path="/"
+          path="/Movies-Search-/"
           render={() => (
             <div className="movies">
               {loading && !errorMessage ? (
@@ -100,11 +100,12 @@ const App = () => {
           )}
         />
         <Route
-          path={"/" + selectedPath}
+          path={"/Movies-Search-/" + selectedPath}
           render={() => (
             <MovieDetails movie={selectedDetails} genres={selectedGenres} />
           )}
         />
+        <Redirect from="/" to="/Movies-Search-/" />
       </Switch>
 
       {/* <Search search={search} />  */}

@@ -23,7 +23,7 @@ const Movie = ({ movie, genres, onDetails }) => {
           <h5>
             {movieGenres[0]} <br></br> {movieGenres[1]}
           </h5>
-          <Link to={"/" + movie.title}>
+          <Link to={"/Movies-Search-/" + movie.title}>
             <button onClick={() => onDetails(movie, movieGenres, movie.title)}>
               Details
             </button>
