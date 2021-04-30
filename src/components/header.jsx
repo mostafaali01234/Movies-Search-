@@ -5,7 +5,7 @@ const Header = ({ text, click, setHome }) => {
   return (
     <div className="App-header">
       <a
-        href="/"
+        href="/Movies-Search-/"
         onClick={() => {
           setHome(click + 1);
         }}
