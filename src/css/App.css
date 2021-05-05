@@ -179,7 +179,7 @@ body {
 }
 
 /* ------------------------------------------------------------------------------------------------- */
-.container {
+.container .row {
   position: relative;
   display: flex;
   width: 90%;
@@ -187,26 +187,26 @@ body {
   padding-top: 100px;
 }
 
-.container .col {
+.container .row .col {
   margin: 0 20px;
   text-align: left;
   color: white;
 }
 
-.container .col img {
+.container .row .col img {
   border: 5px solid #f1f1f1;
   border-radius: 5px;
 }
 
-.container .col h1 {
+.container .row .col h1 {
   margin-top: 0;
 }
 
-.container .col h2 {
+.container .row .col h2 {
   color: #dadada;
 }
 
-.container .col h4 {
+.container .row .col h4 {
   margin-top: 50px;
   width: 80%;
   color: #e0dede;
@@ -234,6 +234,33 @@ body {
   .App-header .search :last-child {
     margin: 3px 0;
   }
+
+  .container .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container .row .col h1 {
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .container .row .col h2,
+  .container .row .col h4 {
+    font-size: 16px;
+    margin: 5px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .container .row .col img {
+    margin: 20px;
+  }
+
+  .container .row .hidden-sm {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -251,11 +278,11 @@ body {
 @media only screen and (max-width: 768px) {
 
   .App .movies,
-  .container {
+  .container .row {
     padding-top: 170px;
   }
 
-  .container :nth-child() {
+  .container .row :nth-child() {
     margin-top: 50px;
   }
 }
@@ -265,13 +292,17 @@ body {
     max-width: 25%;
   }
 
-  .container .col h1 {
+  .container .row .col h1 {
     font-size: 1.6em;
   }
 
-  .container .col h2,
-  .container .col h4 {
+  .container .row .col h2,
+  .container .row .col h4 {
     font-size: 1.1em;
+  }
+
+  .container .row .sm {
+    display: none;
   }
 }
 
