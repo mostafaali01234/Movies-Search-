@@ -58,7 +58,7 @@ body {
 .App-header .search :first-child {
   width: 250px;
   height: 2rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
   background-color: #282c34;
   border: 2px solid rgb(126, 126, 126);
   color: rgb(143, 143, 143);
@@ -69,7 +69,9 @@ body {
 
 .App-header .search :last-child {
   background-color: #008CBA;
-  padding: 12px 28px;
+  padding: 6px 28px;
+  text-align: center;
+  font-size: 18px;
   outline: none;
   border-radius: 10px;
   border: none;

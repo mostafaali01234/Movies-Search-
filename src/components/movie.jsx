@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 
 const Movie = ({ movie, genres, onDetails }) => {
   const img = `http://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+
   let movieGenres = movie.genre_ids.map((id) => {
     let name;
     genres.map((genre) => {
-      if (genre.id == id) {
+      if (genre.id === id) {
         name = genre.name;
         return name;
       }
+      return 0;
     });
     return name;
   });
@@ -23,7 +25,7 @@ const Movie = ({ movie, genres, onDetails }) => {
           <h5>
             {movieGenres[0]} <br></br> {movieGenres[1]}
           </h5>
-          <Link to={"/Movies-Search-/" + movie.title}>
+          <Link to={`/Movies-Search-/${movie.title}`}>
             <button onClick={() => onDetails(movie, movieGenres, movie.title)}>
               Details
             </button>

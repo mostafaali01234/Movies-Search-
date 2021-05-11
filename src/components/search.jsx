@@ -1,10 +1,13 @@
 import React, { useState, useContext } from "react";
-import { SearchContext } from "./App";
+import { SearchContext } from "./App2";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
-
-  const searchFunction = useContext(SearchContext);
+  // const searchFunction = useContext(SearchContext);
+  const { searchFun, searchLoading, setSearchLoading } = useContext(
+    SearchContext
+  );
 
   const handleSearchInputChanges = (e) => {
     setSearchValue(e.target.value);
@@ -15,8 +18,9 @@ const Search = () => {
   };
 
   const callSearchFunction = (e) => {
-    e.preventDefault();
-    searchFunction(searchValue);
+    // e.preventDefault();
+    searchFun(searchValue);
+    setSearchLoading(searchLoading + 1);
     resetInputField();
   };
 
@@ -27,7 +31,9 @@ const Search = () => {
         onChange={handleSearchInputChanges}
         type="text"
       />
-      <input onClick={callSearchFunction} type="submit" value="SEARCH" />
+      <Link to={"/Movies-Search-/"} onClick={callSearchFunction}>
+        Search
+      </Link>
     </form>
   );
 };
