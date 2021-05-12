@@ -2,12 +2,11 @@ import React, { useState, useContext } from "react";
 import { SearchContext } from "./App2";
 import { Link } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ click }) => {
   const [searchValue, setSearchValue] = useState("");
   // const searchFunction = useContext(SearchContext);
-  const { searchFun, searchLoading, setSearchLoading } = useContext(
-    SearchContext
-  );
+  const { searchFun, searchLoading, setSearchLoading } =
+    useContext(SearchContext);
 
   const handleSearchInputChanges = (e) => {
     setSearchValue(e.target.value);
@@ -25,7 +24,7 @@ const Search = () => {
   };
 
   return (
-    <form className="search">
+    <form className={click ? "search active" : "search"}>
       <input
         value={searchValue}
         onChange={handleSearchInputChanges}

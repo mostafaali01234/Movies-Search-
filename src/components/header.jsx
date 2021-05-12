@@ -1,13 +1,21 @@
-import React from "react";
-
+import React, { useState } from "react";
 import Search from "./search";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-const Header = ({ text, click, setHome }) => {
+const Header = ({ text }) => {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
+
   return (
     <div className="App-header">
       <a href="/Movies-Search-/">{text}</a>
 
-      <Search />
+      <div className="menu" onClick={handleClick}>
+        {click ? <FaTimes /> : <FaBars />}
+      </div>
+
+      <Search click={click} />
     </div>
   );
 };
