@@ -224,7 +224,7 @@ body {
 @media only screen and (max-width: 767px) {
   .App-header {
     flex-direction: column;
-    height: auto;
+    height: 4rem;
   }
 
   .App-header a {
@@ -236,7 +236,7 @@ body {
     width: 100%;
     position: absolute;
     padding-top: 10px;
-    top: 56px;
+    top: 64px;
     left: -100%;
     opacity: 0;
     display: flex;

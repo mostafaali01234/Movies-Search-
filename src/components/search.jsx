@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { SearchContext } from "./App2";
 import { Link } from "react-router-dom";
 
-const Search = ({ click }) => {
+const Search = ({ click, setClick }) => {
   const [searchValue, setSearchValue] = useState("");
   // const searchFunction = useContext(SearchContext);
   const { searchFun, searchLoading, setSearchLoading } =
@@ -20,6 +20,7 @@ const Search = ({ click }) => {
     // e.preventDefault();
     searchFun(searchValue);
     setSearchLoading(searchLoading + 1);
+    setClick(!click);
     resetInputField();
   };
 

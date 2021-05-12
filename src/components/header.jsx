@@ -15,7 +15,7 @@ const Header = ({ text }) => {
         {click ? <FaTimes /> : <FaBars />}
       </div>
 
-      <Search click={click} />
+      <Search click={click} setClick={setClick} />
     </div>
   );
 };
